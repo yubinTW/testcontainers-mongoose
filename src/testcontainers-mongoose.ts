@@ -1,16 +1,14 @@
-import mongoose from "mongoose"
-import { GenericContainer } from "testcontainers"
+import mongoose from 'mongoose'
+import { GenericContainer } from 'testcontainers'
 
 /**
  * Connect to mongo container.
  */
-export const connect = async (image = "mongo") => {
-  const mongoContainer = await new GenericContainer(image)
-    .withExposedPorts(27017)
-    .start()
+export const connect = async (image = 'mongo') => {
+  const mongoContainer = await new GenericContainer(image).withExposedPorts(27017).start()
   const uri = `mongodb://${mongoContainer.getHost()}:${mongoContainer.getMappedPort(27017)}`
   await mongoose.connect(uri)
-};
+}
 
 /**
  * Close db connection
@@ -18,7 +16,7 @@ export const connect = async (image = "mongo") => {
 export const closeDatabase = async () => {
   await mongoose.connection.dropDatabase()
   await mongoose.connection.close()
-};
+}
 
 /**
  * Delete db collections
@@ -29,4 +27,4 @@ export const clearDatabase = async () => {
     const collection = collections[key]
     await collection.deleteMany({})
   }
-};
+}
