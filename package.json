@@ -1,0 +1,36 @@
+{
+  "name": "testcontainers-mongoose",
+  "author": "Yubin, Hsu",
+  "version": "0.0.1",
+  "main": "dist/index",
+  "types": "dist/index",
+  "keywords": [
+    "docker",
+    "testcontainers",
+    "mongoose"
+  ],
+  "files": [
+    "dist"
+  ],
+  "description": "Testcontainer mongo with mongoose",
+  "license": "MIT",
+  "homepage": "https://github.com/yubinTW/testcontainers-mongoose",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yubinTW/testcontainers-mongoose"
+  },
+  "bugs": {
+    "url": "https://github.com/yubinTW/testcontainers-mongoose/issues"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "mongoose": "^6.2.4",
+    "testcontainers": "^8.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.26",
+    "typescript": "^4.6.2"
+  }
+}
