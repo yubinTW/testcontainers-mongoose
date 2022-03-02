@@ -2,8 +2,8 @@
   "name": "testcontainers-mongoose",
   "author": "Yubin, Hsu",
   "version": "0.0.2",
-  "main": "dist/index",
-  "types": "dist/index",
+  "main": "dist/testcontainers-mongoose",
+  "types": "dist/testcontainers-mongoose",
   "keywords": [
     "docker",
     "testcontainers",
