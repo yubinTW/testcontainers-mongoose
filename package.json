@@ -1,7 +1,7 @@
 {
   "name": "testcontainers-mongoose",
   "author": "Yubin, Hsu",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/testcontainers-mongoose",
   "types": "dist/testcontainers-mongoose",
   "keywords": [
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "mongoose": "^6.2.4",
-    "testcontainers": "^8.3.0"
+    "testcontainers": "^8.10.0"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
