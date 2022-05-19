@@ -1,5 +1,9 @@
 # Testcontainers-mongoose
 
+a mongoose helper for using testcontainer with mongodb
+
+https://www.npmjs.com/package/testcontainers-mongoose
+
 ## Installation
 
 ```
