@@ -1,4 +1,6 @@
 {
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "test"],
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
@@ -7,9 +9,5 @@
     "strict": true,
     "esModuleInterop": true,
     "lib": ["es2017"]
-  },
-  "exclude": [
-    "dist",
-    "node_modules"
-  ]
+  }
 }

@@ -1,6 +1,6 @@
-import * as dbHandler from './testcontainers-mongoose'
-import mongoose, { model, Schema } from 'mongoose'
 import { describe, it, test, expect } from 'vitest'
+import * as dbHandler from '../src/testcontainers-mongoose'
+import mongoose, { model, Schema } from 'mongoose'
 
 describe('testcontainers-mongoose test', () => {
   it('should make mongoose connect successfully', async () => {
