@@ -25,16 +25,15 @@ npm i -D testcontainers-mongoose
 - `TESTCONTAINERS_RYUK_DISABLED=true` Disable ryuk
 - `RYUK_CONTAINER_IMAGE=registry.mycompany.com/mirror/ryuk:0.3.0` Custom image for ryuk
 
-
 ## Usage
 
-Testing with Jest
+Testing with Vitest
 
 ```typescript
 import * as dbHandler from 'testcontainers-mongoose'
+import { describe, beforeAll, afterAll, afterEach, it, expect } from 'vitest'
 
 describe('testcontainers-mongoose test', () => {
-
   beforeAll(async () => {
     await dbHandler.connect('harbor.yourcompany.com/mongo:4.4.4')
     // ...
@@ -50,6 +49,5 @@ describe('testcontainers-mongoose test', () => {
   it('some test using mongoose', async () => {
     // ...
   })
-
 })
 ```
