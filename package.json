@@ -1,7 +1,7 @@
 {
   "name": "testcontainers-mongoose",
   "author": "Yubin, Hsu",
-  "version": "0.2.3",
+  "version": "1.0.0",
   "main": "dist/testcontainers-mongoose",
   "types": "dist/testcontainers-mongoose",
   "keywords": [
@@ -28,13 +28,13 @@
     "fix-prettier": "prettier --write \"./src/**/*.ts\""
   },
   "dependencies": {
-    "mongoose": "^6.6.5",
-    "testcontainers": "^8.15.0"
+    "mongoose": "^6.7.2",
+    "testcontainers": "^9.0.0"
   },
   "devDependencies": {
-    "@types/node": "^18.8.3",
+    "@types/node": "^18.11.9",
     "prettier": "^2.7.1",
     "typescript": "^4.8.4",
-    "vitest": "^0.24.0"
+    "vitest": "^0.25.2"
   }
 }
