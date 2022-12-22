@@ -46,4 +46,11 @@ describe('testcontainers-mongoose test', () => {
     expect(catsAfterAdd).toHaveLength(1)
     expect(catsAfterClear).toHaveLength(0)
   })
+
+  test('getMongodbConnectionString()', async () => {
+    await dbHandler.connect()
+    const connectionString = dbHandler.getMongodbConnectionString()
+    await dbHandler.closeDatabase()
+    expect(connectionString).toBeTruthy()
+  })
 })
