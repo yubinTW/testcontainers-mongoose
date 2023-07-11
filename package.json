@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "mongoose": "^7.2.2",
-    "testcontainers": "^9.8.0"
+    "testcontainers": "^9.10.0"
   },
   "devDependencies": {
     "@types/node": "^18.16.16",
