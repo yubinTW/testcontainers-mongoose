@@ -28,7 +28,7 @@
     "fix-prettier": "prettier --write \"./src/**/*.ts\""
   },
   "dependencies": {
-    "mongoose": "^7.3.2",
+    "mongoose": "^7.4.0",
     "testcontainers": "^9.10.0"
   },
   "devDependencies": {
