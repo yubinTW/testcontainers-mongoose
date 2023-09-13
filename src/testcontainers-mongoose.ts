@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, { ConnectionStates } from 'mongoose'
 import { GenericContainer, StartedTestContainer } from 'testcontainers'
 
 let mongoContainer: StartedTestContainer
@@ -17,7 +17,7 @@ export const connect = async (image = 'mongo') => {
  */
 export const closeDatabase = async () => {
   await mongoose.connection.dropDatabase()
-  if (mongoose.connection.readyState === 1) {
+  if (mongoose.connection.readyState === ConnectionStates.connected) {
     await mongoose.disconnect()
   }
   await mongoContainer.stop()

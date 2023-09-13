@@ -51,3 +51,36 @@ describe('testcontainers-mongoose test', () => {
   })
 })
 ```
+
+## Start Mongo Container without connect with mongoose
+
+In case you want to connect the mongo by yourself
+
+using `startedMongoTestContainerOf`
+
+Example
+
+```typescript
+import { startedMongoTestContainerOf, StartedMongoTestContainer } from 'testcontainers-mongoose'
+import { describe, beforeAll, afterAll, afterEach, it, expect } from 'vitest'
+
+describe('testcontainers-mongoose test', () => {
+  let mongoTestContainer: StartedMongoTestContainer
+  beforeAll(async () => {
+    mongoTestContainer = await startedMongoTestContainerOf('harbor.yourcompany.com/mongo:4.4.4')
+    // connect to mongoTestContainer by yourself
+    // mongoTestContainer.uri is the connection string of the mongo container
+  })
+  afterAll(async () => {
+    await mongoTestContainer.closeDatabase()
+  })
+
+  afterEach(async () => {
+    await mongoTestContainer.clearDatabase()
+  })
+
+  it('some test case', async () => {
+    // ...
+  })
+})
+```
