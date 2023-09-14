@@ -1,5 +1,9 @@
 # Testcontainers-mongoose
 
+[![Node.js CI](https://github.com/yubinTW/testcontainers-mongoose/actions/workflows/node.js.yml/badge.svg)](https://github.com/yubinTW/testcontainers-mongoose/actions/workflows/node.js.yml)
+[![NPM version](https://img.shields.io/npm/v/testcontainers-mongoose.svg?style=flat)](https://www.npmjs.com/package/testcontainers-mongoose)
+
+
 a mongoose helper for using testcontainers with mongodb
 
 https://www.npmjs.com/package/testcontainers-mongoose
