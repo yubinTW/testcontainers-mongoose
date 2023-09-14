@@ -18,11 +18,11 @@ describe('startedMongoTestContainerOf', () => {
   })
 
   test('Mongo Connection String should not be empty', async () => {
-    expect(mongoContainer.uri).not.toHaveLength(0)
+    expect(mongoContainer.getUri()).not.toHaveLength(0)
   })
 
   it('should be connected, when using mongoose to connect to mongoTestContainer', async () => {
-    await mongoose.connect(mongoContainer.uri)
+    await mongoose.connect(mongoContainer.getUri())
     expect(mongoose.connection.readyState).toBe(ConnectionStates.connected)
   })
 })

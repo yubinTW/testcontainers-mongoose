@@ -58,6 +58,8 @@ In case you want to connect the mongo by yourself
 
 using `startedMongoTestContainerOf`
 
+Get the mongo connection string by `.getUri()`
+
 Example
 
 ```typescript
@@ -69,7 +71,7 @@ describe('testcontainers-mongoose test', () => {
   beforeAll(async () => {
     mongoTestContainer = await startedMongoTestContainerOf('harbor.yourcompany.com/mongo:4.4.4')
     // connect to mongoTestContainer by yourself
-    // mongoTestContainer.uri is the connection string of the mongo container
+    // mongoTestContainer.getUri() is the connection string of the mongo container
   })
   afterAll(async () => {
     await mongoTestContainer.closeDatabase()
