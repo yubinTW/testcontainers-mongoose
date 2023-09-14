@@ -3,7 +3,7 @@ import { GenericContainer, StartedTestContainer } from 'testcontainers'
 
 export type StartedMongoTestContainer = {
   container: StartedTestContainer
-  uri: string
+  getUri: () => string
   closeDatabase: () => Promise<void>
   clearDatabase: () => Promise<void>
 }
@@ -13,7 +13,7 @@ export const startedMongoTestContainerOf: (imageName?: string) => Promise<Starte
 ) => {
   const startedMongoTestContainer = await new GenericContainer(imageName).withExposedPorts(27017).start()
   const uri = `mongodb://${startedMongoTestContainer.getHost()}:${startedMongoTestContainer.getMappedPort(27017)}`
-
+  const getUri = () => uri
   /**
    * Close db connection
    */
@@ -38,7 +38,7 @@ export const startedMongoTestContainerOf: (imageName?: string) => Promise<Starte
 
   return {
     container: startedMongoTestContainer,
-    uri,
+    getUri,
     closeDatabase,
     clearDatabase
   }
