@@ -1,2 +1,2 @@
-import './startedMongoTestContainer'
-import './testcontainers-mongoose'
+export { StartedMongoTestContainer, startedMongoTestContainerOf } from './startedMongoTestContainer'
+export * from './testcontainers-mongoose'
