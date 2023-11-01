@@ -3,7 +3,6 @@
 [![Node.js CI](https://github.com/yubinTW/testcontainers-mongoose/actions/workflows/node.js.yml/badge.svg)](https://github.com/yubinTW/testcontainers-mongoose/actions/workflows/node.js.yml)
 [![NPM version](https://img.shields.io/npm/v/testcontainers-mongoose.svg?style=flat)](https://www.npmjs.com/package/testcontainers-mongoose)
 
-
 a mongoose helper for using testcontainers with mongodb
 
 https://www.npmjs.com/package/testcontainers-mongoose
@@ -12,6 +11,12 @@ https://www.npmjs.com/package/testcontainers-mongoose
 
 ```
 npm i -D testcontainers-mongoose
+```
+
+if using mongoose `7.x` version
+
+```
+npm i -D testcontainers-mongoose@2.2.2
 ```
 
 ## Configuration
