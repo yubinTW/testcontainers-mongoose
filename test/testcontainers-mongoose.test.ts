@@ -15,9 +15,16 @@ describe('testcontainers-mongoose test', () => {
     expect(closedState).toBe(0)
   })
 
+  it('should return connection string', async () => {
+    await dbHandler.connect()
+    const connectionString = dbHandler.getMongodbConnectionString()
+    await dbHandler.closeDatabase()
+    expect(connectionString.length).toBeGreaterThan(0)
+  })
+
   test('clearDatabase() clear all data', async () => {
     await dbHandler.connect()
-    const Cat = model(
+    const CatModel = model(
       'Cat',
       new Schema({
         name: {
@@ -35,11 +42,11 @@ describe('testcontainers-mongoose test', () => {
       weight: 6.8
     }
 
-    const catsInit = await Cat.find()
-    await Cat.create(newCat)
-    const catsAfterAdd = await Cat.find()
+    const catsInit = await CatModel.find()
+    await CatModel.create(newCat)
+    const catsAfterAdd = await CatModel.find()
     await dbHandler.clearDatabase()
-    const catsAfterClear = await Cat.find()
+    const catsAfterClear = await CatModel.find()
     await dbHandler.closeDatabase()
 
     expect(catsInit).toHaveLength(0)
