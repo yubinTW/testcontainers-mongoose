@@ -1,6 +1,6 @@
 import { describe, it, test, expect, beforeAll, afterAll } from 'vitest'
 import { startedMongoTestContainerOf, StartedMongoTestContainer } from '../src/startedMongoTestContainer'
-import mongoose, { ConnectionStates } from 'mongoose'
+import mongoose, { ConnectionStates, model, Schema } from 'mongoose'
 
 describe('startedMongoTestContainerOf', () => {
   let mongoContainer: StartedMongoTestContainer
@@ -24,5 +24,35 @@ describe('startedMongoTestContainerOf', () => {
   it('should be connected, when using mongoose to connect to mongoTestContainer', async () => {
     await mongoose.connect(mongoContainer.getUri())
     expect(mongoose.connection.readyState).toBe(ConnectionStates.connected)
+  })
+
+  test('clearDatabase() clear all data', async () => {
+    const FatCatModel = model(
+      'FatCat',
+      new Schema({
+        name: {
+          type: String,
+          required: true
+        },
+        weight: {
+          type: Number,
+          default: 0
+        }
+      })
+    )
+    const newCat = {
+      name: 'Fat Orange',
+      weight: 6.8
+    }
+
+    const catsInit = await FatCatModel.find()
+    await FatCatModel.create(newCat)
+    const catsAfterAdd = await FatCatModel.find()
+    await mongoContainer.clearDatabase()
+    const catsAfterClear = await FatCatModel.find()
+
+    expect(catsInit).toHaveLength(0)
+    expect(catsAfterAdd).toHaveLength(1)
+    expect(catsAfterClear).toHaveLength(0)
   })
 })
