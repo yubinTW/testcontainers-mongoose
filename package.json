@@ -3,6 +3,7 @@
   "author": "Yubin, Hsu",
   "version": "3.0.2",
   "main": "dist/index.js",
+  "type": "module",
   "types": "dist/index.d.ts",
   "keywords": [
     "docker",
