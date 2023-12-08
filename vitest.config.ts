@@ -2,7 +2,7 @@ import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   test: {
-    threads: false,
+    pool: 'forks',
     testTimeout: 60_000
   }
 })
