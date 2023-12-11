@@ -1,15 +1,15 @@
+import { MongoDBContainer, StartedMongoDBContainer } from '@testcontainers/mongodb'
 import mongoose from 'mongoose'
-import { GenericContainer, StartedTestContainer } from 'testcontainers'
 
-let mongoContainer: StartedTestContainer
+let mongoContainer: StartedMongoDBContainer
 
 /**
  * Connect to mongo container.
  */
-export const connect = async (image = 'mongo') => {
-  mongoContainer = await new GenericContainer(image).withExposedPorts(27017).start()
-  const uri = `mongodb://${mongoContainer.getHost()}:${mongoContainer.getMappedPort(27017)}`
-  await mongoose.connect(uri)
+export const connect = async (image = 'mongo:4.4.4') => {
+  mongoContainer = await new MongoDBContainer(image).start()
+  const uri = mongoContainer.getConnectionString()
+  await mongoose.connect(uri, { directConnection: true })
 }
 
 /**
@@ -37,5 +37,4 @@ export const clearDatabase = async () => {
 /**
  * Get Mongodb Connection String
  */
-export const getMongodbConnectionString = () =>
-  mongoContainer ? `mongodb://${mongoContainer.getHost()}:${mongoContainer.getMappedPort(27017)}` : ''
+export const getMongodbConnectionString = () => mongoContainer.getConnectionString()

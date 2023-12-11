@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
-import { GenericContainer, StartedTestContainer } from 'testcontainers'
+import { StartedTestContainer } from 'testcontainers'
+import { MongoDBContainer } from '@testcontainers/mongodb'
 
 export type StartedMongoTestContainer = {
   container: StartedTestContainer
@@ -9,11 +10,12 @@ export type StartedMongoTestContainer = {
 }
 
 export const startedMongoTestContainerOf: (imageName?: string) => Promise<StartedMongoTestContainer> = async (
-  imageName = 'mongo:latest'
+  imageName = 'mongo:4.4.4'
 ) => {
-  const startedMongoTestContainer = await new GenericContainer(imageName).withExposedPorts(27017).start()
-  const uri = `mongodb://${startedMongoTestContainer.getHost()}:${startedMongoTestContainer.getMappedPort(27017)}`
-  const getUri = () => uri
+  const startedMongoTestContainer = await new MongoDBContainer(imageName).start()
+
+  const getUri = () => startedMongoTestContainer.getConnectionString()
+
   /**
    * Close db connection
    */
