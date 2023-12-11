@@ -10,7 +10,7 @@ export type StartedMongoTestContainer = {
 }
 
 export const startedMongoTestContainerOf: (imageName?: string) => Promise<StartedMongoTestContainer> = async (
-  imageName = 'mongo:latest'
+  imageName = 'mongo:4.4.4'
 ) => {
   const startedMongoTestContainer = await new MongoDBContainer(imageName).start()
 
