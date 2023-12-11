@@ -41,6 +41,7 @@ export const startedMongoTestContainerOf: (imageName?: string) => Promise<Starte
   return {
     container: startedMongoTestContainer,
     getUri,
+    getConnectionString: getUri,
     closeDatabase,
     clearDatabase
   }
