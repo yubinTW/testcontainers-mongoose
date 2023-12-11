@@ -6,7 +6,7 @@ let mongoContainer: StartedMongoDBContainer
 /**
  * Connect to mongo container.
  */
-export const connect = async (image = 'mongo:4.4.4') => {
+export const connect = async (image = 'mongo:4.4.26') => {
   mongoContainer = await new MongoDBContainer(image).start()
   const uri = mongoContainer.getConnectionString()
   await mongoose.connect(uri, { directConnection: true })
