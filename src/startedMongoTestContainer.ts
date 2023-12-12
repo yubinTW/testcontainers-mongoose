@@ -5,6 +5,7 @@ import { MongoDBContainer } from '@testcontainers/mongodb'
 export type StartedMongoTestContainer = {
   container: StartedTestContainer
   getUri: () => string
+  getConnectionString: () => string
   closeDatabase: () => Promise<void>
   clearDatabase: () => Promise<void>
 }
