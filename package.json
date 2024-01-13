@@ -28,15 +28,15 @@
     "fix-prettier": "prettier --write \"./src/**/*.ts\""
   },
   "dependencies": {
-    "@testcontainers/mongodb": "^10.3.2",
-    "mongoose": "^8.0.3",
-    "testcontainers": "^10.3.2"
+    "@testcontainers/mongodb": "^10.5.0",
+    "mongoose": "^8.0.4",
+    "testcontainers": "^10.5.0"
   },
   "devDependencies": {
-    "@types/node": "^20.10.4",
-    "@vitest/coverage-v8": "^1.0.4",
-    "prettier": "^3.1.1",
+    "@types/node": "^20.11.0",
+    "@vitest/coverage-v8": "^1.2.0",
+    "prettier": "^3.2.1",
     "typescript": "^5.3.3",
-    "vitest": "^1.0.4"
+    "vitest": "^1.2.0"
   }
 }
