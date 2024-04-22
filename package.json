@@ -1,7 +1,7 @@
 {
   "name": "testcontainers-mongoose",
   "author": "Yubin, Hsu",
-  "version": "4.1.6",
+  "version": "4.2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "keywords": [
