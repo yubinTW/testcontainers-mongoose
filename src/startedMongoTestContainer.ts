@@ -8,6 +8,7 @@ export type StartedMongoTestContainer = {
   getConnectionString: () => string
   closeDatabase: () => Promise<void>
   clearDatabase: () => Promise<void>
+  stop: () => Promise<void>
 }
 
 export const startedMongoTestContainerOf: (imageName?: string) => Promise<StartedMongoTestContainer> = async (
@@ -39,11 +40,19 @@ export const startedMongoTestContainerOf: (imageName?: string) => Promise<Starte
     }
   }
 
+  /**
+   * Stop the container
+   */
+  const stop = async () => {
+    await startedMongoTestContainer.stop()
+  }
+
   return {
     container: startedMongoTestContainer,
     getUri,
     getConnectionString: getUri,
     closeDatabase,
-    clearDatabase
+    clearDatabase,
+    stop
   }
 }
