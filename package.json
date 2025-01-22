@@ -1,7 +1,7 @@
 {
   "name": "testcontainers-mongoose",
   "author": "Yubin, Hsu",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "keywords": [
@@ -28,9 +28,9 @@
     "fix-prettier": "prettier --write \"./src/**/*.ts\""
   },
   "dependencies": {
-    "@testcontainers/mongodb": "^10.16.0",
-    "mongoose": "^8.8.3",
-    "testcontainers": "^10.16.0"
+    "@testcontainers/mongodb": "^10.17.1",
+    "mongoose": "^8.9.5",
+    "testcontainers": "^10.17.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.1",
